@@ -3,11 +3,14 @@ import { personalInfo, experiences, educationList, certifications, skillCategori
 
 export default function PrintableCV() {
   return (
-    <div className="fixed top-0 left-0 w-0 h-0 overflow-hidden pointer-events-none z-[-100] print:static print:w-auto print:h-auto print:overflow-visible">
+    <div 
+      className="fixed top-0 left-0 pointer-events-none z-[-1000] opacity-0 overflow-hidden print:static print:w-auto print:h-auto print:opacity-100 print:overflow-visible"
+      style={{ width: '794px' }}
+    >
       <div 
         id="printable-cv" 
-        className="bg-white text-slate-900 p-10 font-sans w-[210mm] min-h-[297mm] text-xs leading-relaxed"
-        style={{ boxSizing: 'border-box' }}
+        className="bg-white text-slate-900 p-10 font-sans text-xs leading-relaxed print:w-[210mm] print:min-h-[297mm]"
+        style={{ width: '794px', minHeight: '1123px', boxSizing: 'border-box' }}
       >
       {/* Header section */}
       <div className="border-b-2 border-slate-900 pb-5 mb-6 flex justify-between items-end">
@@ -122,7 +125,7 @@ export default function PrintableCV() {
                     {cat.skills.map((skill, sIdx) => (
                       <span 
                         key={sIdx} 
-                        className="bg-slate-100 text-slate-800 text-[8px] font-medium px-1.5 py-0.5 rounded border border-slate-200"
+                        className="bg-slate-100 text-slate-800 text-[8px] font-medium px-1.5 py-0.5 rounded border border-slate-200 whitespace-nowrap inline-block"
                       >
                         {skill}
                       </span>

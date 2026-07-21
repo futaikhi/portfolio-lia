@@ -1,7 +1,7 @@
 import { X, Printer, FileText, Download, Check, ClipboardCopy, Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import { personalInfo, experiences, educationList, certifications, skillCategories } from '../data';
-import { toJpeg } from 'html-to-image';
+import { toPng } from 'html-to-image';
 import { jsPDF } from 'jspdf';
 
 interface CVModalProps {
@@ -16,7 +16,7 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
 
   if (!isOpen) return null;
 
-  // Function to download the CV directly as a high-quality PDF using client-side rendering
+  // Function to download the CV directly as a high-quality PDF using absolute high-DPI HTML rendering
   const generatePDF = async () => {
     setIsGenerating(true);
     setGenerateSuccess(false);
@@ -26,26 +26,34 @@ export default function CVModal({ isOpen, onClose }: CVModalProps) {
         throw new Error('Elemen CV tidak ditemukan');
       }
 
-      // Capture the offscreen element using html-to-image which handles modern oklch colors perfectly
-      const imgData = await toJpeg(element, {
-        quality: 0.95,
-        pixelRatio: 2, // Crisp 2x scaling for perfect text legibility
+      // Generate razor-sharp PNG image from locked 794px absolute-dimension container
+      const imgData = await toPng(element, {
+        quality: 1.0,
+        pixelRatio: 3, // Premium 3x scaling for completely crisp text readability
         backgroundColor: '#ffffff',
       });
+
+      // Create a temporary image to determine dimensions for perfect page splitting
+      const img = new Image();
+      img.src = imgData;
+      await new Promise<void>((resolve) => {
+        img.onload = () => resolve();
+      });
+
+      const imgWidth = img.width;
+      const imgHeight = img.height;
+
+      const pdfWidth = 210; // Standard A4 width in mm
+      const pdfHeight = (imgHeight * pdfWidth) / imgWidth; // Custom calculated height based on content aspect ratio
 
       const pdf = new jsPDF({
         orientation: 'p',
         unit: 'mm',
-        format: 'a4',
+        format: [pdfWidth, pdfHeight],
         compress: true
       });
 
-      const pdfWidth = pdf.internal.pageSize.getWidth(); // A4: 210mm
-      const pdfHeight = pdf.internal.pageSize.getHeight(); // A4: 297mm
-
-      // Add image to cover exactly one A4 page
-      pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-      
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
       pdf.save(`CV_R_Ayu_Riska_Norcamalia.pdf`);
       
       setGenerateSuccess(true);
