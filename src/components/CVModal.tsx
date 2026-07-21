@@ -203,7 +203,7 @@ CV digenerasikan melalui Portofolio Resmi R. Ayu Riska
         </div>
 
         {/* Content Body: Split View */}
-        <div className="flex-1 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-6 p-6">
+        <div className="flex-1 overflow-y-auto grid grid-cols-1 gap-6 p-6">
           
           {/* Left Column: Selector & Export Controls */}
           <div className="lg:col-span-4 space-y-6 flex flex-col justify-between">
@@ -278,108 +278,6 @@ CV digenerasikan melalui Portofolio Resmi R. Ayu Riska
               Pada kotak dialog cetak browser, ubah opsi <strong className="text-slate-200">"Tujuan" (Destination)</strong> menjadi <strong className="text-slate-200">"Simpan sebagai PDF" (Save as PDF)</strong>, hilangkan centang opsi header & footer, lalu klik Simpan.
             </div>
           </div>
-
-          {/* Right Column: Visual Preview A4 Card */}
-          <div className="lg:col-span-8 bg-slate-950 p-6 sm:p-8 rounded-2xl border border-white/5 overflow-y-auto max-h-[60vh] lg:max-h-none flex flex-col space-y-5">
-            <div className="flex items-center justify-between border-b border-white/5 pb-3">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">PRATINJAU FORMAT PDF</span>
-              <span className="text-[10px] font-mono text-slate-500">Standar Ukuran Surat A4</span>
-            </div>
-
-            {/* Simulated Sheet of Paper */}
-            <div className="bg-white text-slate-900 p-6 rounded-xl shadow-inner font-sans text-[10px] leading-relaxed max-w-[170mm] mx-auto w-full border border-slate-300">
-              {/* CV Top Header */}
-              <div className="border-b border-slate-800 pb-3 mb-4 flex justify-between items-end">
-                <div>
-                  <h4 className="text-sm font-extrabold uppercase text-slate-900 tracking-tight font-display">
-                    {personalInfo.name}
-                  </h4>
-                  <p className="text-[9px] font-bold text-brand-600 uppercase tracking-wide">
-                    {personalInfo.title}
-                  </p>
-                </div>
-                <div className="text-right text-[7.5px] text-slate-600 font-mono space-y-0.5">
-                  <p>{personalInfo.email}</p>
-                  <p>{personalInfo.phone}</p>
-                  <p>{personalInfo.location}</p>
-                </div>
-              </div>
-
-              {/* CV Content Split */}
-              <div className="grid grid-cols-12 gap-4">
-                {/* Experiences & Education column */}
-                <div className="col-span-8 space-y-4">
-                  <div>
-                    <h5 className="font-bold text-[9px] uppercase border-b border-slate-300 pb-0.5 mb-2 text-slate-900 tracking-wider">
-                      RIWAYAT KERJA
-                    </h5>
-                    <div className="space-y-3">
-                      {experiences.slice(0, 3).map((exp) => (
-                        <div key={exp.id} className="space-y-0.5">
-                          <div className="flex justify-between font-bold text-[8.5px]">
-                            <span>{exp.role} at {exp.company}</span>
-                            <span className="font-mono text-slate-500 font-medium text-[7.5px]">{exp.period}</span>
-                          </div>
-                          <p className="text-[7.5px] text-slate-600 leading-snug">
-                            {exp.highlights[0]}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h5 className="font-bold text-[9px] uppercase border-b border-slate-300 pb-0.5 mb-2 text-slate-900 tracking-wider">
-                      PENDIDIKAN
-                    </h5>
-                    <div className="space-y-1">
-                      <div className="flex justify-between font-bold text-[8.5px]">
-                        <span>{educationList[0].institution}</span>
-                        <span className="font-mono text-slate-500 font-medium text-[7.5px]">Lulus</span>
-                      </div>
-                      <p className="text-[8px] text-brand-600 font-semibold">{educationList[0].degree}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Skills & Certifications Column */}
-                <div className="col-span-4 space-y-4">
-                  <div>
-                    <h5 className="font-bold text-[9px] uppercase border-b border-slate-300 pb-0.5 mb-2 text-slate-900 tracking-wider">
-                      KEAHLIAN INTI
-                    </h5>
-                    <div className="flex flex-wrap gap-1">
-                      {skillCategories[0].skills.slice(0, 4).map((skill, idx) => (
-                        <span key={idx} className="bg-slate-100 border border-slate-200 text-slate-800 text-[6.5px] px-1 rounded">
-                          {skill}
-                        </span>
-                      ))}
-                      {skillCategories[1].skills.slice(0, 3).map((skill, idx) => (
-                        <span key={idx} className="bg-slate-100 border border-slate-200 text-slate-800 text-[6.5px] px-1 rounded">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h5 className="font-bold text-[9px] uppercase border-b border-slate-300 pb-0.5 mb-2 text-slate-900 tracking-wider">
-                      SERTIFIKASI
-                    </h5>
-                    <div className="space-y-1 text-[7.5px] text-slate-700">
-                      {certifications.slice(0, 2).map((cert, idx) => (
-                        <div key={idx} className="font-medium">
-                          <span className="font-bold text-slate-900">{cert.title}</span>
-                          <span className="block text-slate-500 text-[6.5px] font-mono">{cert.provider}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
