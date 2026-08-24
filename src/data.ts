@@ -24,7 +24,7 @@ export const experiences: WorkExperience[] = [
       "Memesan order delivery untuk esok harinya sesuai jadwal mitra guna memastikan rantai pasok berjalan lancar.",
       "Menginput penjualan mitra per hari di aplikasi ERP/SAP.",
       "Menangani proses Billing sampai pelunasan penjualan mitra per hari di aplikasi SAP.",
-      "Melakukan rekonsiliasi Stok fisik dan pencatatan SAP per hari sesuai stok keluar harian."
+      "Melakukan pengecekan Stok fisik dan pencatatan SAP sesuai stok keluar harian."
     ]
   },
   {
