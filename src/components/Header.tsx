@@ -11,7 +11,7 @@ export default function Header({ onScrollToSection, onOpenCVModal }: HeaderProps
   return (
     <header className="border-b border-bento-border bg-bento-bg sticky top-0 z-50 backdrop-blur-md bg-opacity-90">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo Brand */}
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-emerald-700 flex items-center justify-center text-slate-950 font-display font-extrabold text-lg tracking-wider shadow-md shadow-brand-500/20">
@@ -105,10 +105,10 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
         </div>
 
         {/* BENTO GRID HERO LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[180px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-auto md:auto-rows-[180px]">
           
           {/* Main Profile Bento Box (col-span-2 row-span-2) */}
-          <div className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-slate-900 to-bento-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-bento-border shadow-2xl hover:border-bento-border-hover transition-all group relative overflow-hidden">
+          <div className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-slate-900 to-bento-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border border-bento-border shadow-2xl hover:border-bento-border-hover transition-all group relative overflow-hidden h-auto md:h-full">
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl group-hover:bg-brand-500/10 transition-colors pointer-events-none" />
             
             <div className="space-y-4">
@@ -130,7 +130,7 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
               </p>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-bento-border mt-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-bento-border mt-6 md:mt-4">
               <div className="flex flex-wrap gap-1.5">
                 <span className="text-[10px] font-mono bg-slate-900 px-2.5 py-1 rounded-md text-brand-500 font-semibold border border-brand-500/10">
                   S1 Akuntansi
@@ -151,9 +151,9 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
 
 
           {/* Quick Contact Box (col-span-1 row-span-1) */}
-          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group">
+          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group min-h-[150px] md:min-h-0">
             <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500">Fast Connect</span>
-            <div className="space-y-2">
+            <div className="space-y-2 my-2 md:my-0">
               <a href={`mailto:${personalInfo.email}`} className="flex items-center space-x-2.5 text-xs text-slate-300 hover:text-brand-500 transition-colors">
                 <Mail className="w-3.5 h-3.5 text-brand-500 shrink-0" />
                 <span className="truncate">{personalInfo.email}</span>
@@ -170,9 +170,9 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
           </div>
 
           {/* Location & Home Base (col-span-1 row-span-1) */}
-          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group">
+          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group min-h-[150px] md:min-h-0">
             <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500">DOMISILI / ASAL</span>
-            <div className="flex items-start space-x-2.5">
+            <div className="flex items-start space-x-2.5 my-2 md:my-0">
               <MapPin className="w-4 h-4 text-brand-500 shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-xs font-bold text-slate-200">Malang</h4>
@@ -183,14 +183,14 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
           </div>
 
           {/* Availability Status (col-span-1 row-span-1) */}
-          <div className="bg-brand-500 rounded-3xl p-5 flex flex-col justify-between text-slate-950 hover:bg-brand-400 transition-all group cursor-pointer relative overflow-hidden" onClick={() => onScrollToSection('kontak')}>
+          <div className="bg-brand-500 rounded-3xl p-5 flex flex-col justify-between text-slate-950 hover:bg-brand-400 transition-all group cursor-pointer relative overflow-hidden min-h-[150px] md:min-h-0" onClick={() => onScrollToSection('kontak')}>
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono uppercase tracking-widest text-slate-900/60 font-bold">WORK AVAILABILITY</span>
               <div className="w-2.5 h-2.5 bg-slate-950 rounded-full flex items-center justify-center">
                 <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
               </div>
             </div>
-            <div>
+            <div className="my-2 md:my-0">
               <div className="text-xl font-display font-extrabold tracking-tight leading-tight">Ready for Projects</div>
               <p className="text-[10px] font-semibold tracking-wide uppercase text-slate-900/70 mt-1">Hire R. Ayu Riska</p>
             </div>
@@ -201,9 +201,9 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
           </div>
 
           {/* Social Platforms Block (col-span-1 row-span-1) */}
-          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group">
+          <div className="bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group min-h-[150px] md:min-h-0">
             <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500">DIGITAL RAILS</span>
-            <div className="flex space-x-3.5">
+            <div className="flex space-x-3.5 my-2 md:my-0">
               <a 
                 href="https://linkedin.com/in/ayuriskanc" 
                 target="_blank" 
@@ -225,12 +225,12 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
           </div>
 
           {/* Value Pillars Quick Look (col-span-2 row-span-1) */}
-          <div className="md:col-span-2 md:row-span-1 bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group relative overflow-hidden">
-            <div className="flex items-center justify-between">
+          <div className="md:col-span-2 md:row-span-1 bg-bento-card rounded-3xl p-5 border border-bento-border flex flex-col justify-between hover:border-bento-border-hover transition-all group relative overflow-hidden min-h-[150px] md:min-h-0">
+            <div className="flex items-center justify-between mb-3 md:mb-0">
               <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500">Core Advisory Philosophy</span>
               <span className="text-[10px] text-brand-500 font-mono font-bold">03 PILLARS</span>
             </div>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="space-y-1 bg-slate-900/40 p-2.5 rounded-xl border border-white/5">
                 <span className="text-[9px] font-bold text-brand-500 font-mono">01 / INTEGRITAS</span>
                 <p className="text-[10px] text-slate-300 leading-tight">Pencatatan bebas anomali & patuh pajak.</p>
@@ -251,4 +251,3 @@ export function Hero({ onScrollToSection, onOpenCVModal }: HeaderProps) {
     </section>
   );
 }
-
